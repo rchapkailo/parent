@@ -38,14 +38,14 @@ jobs:
           fi
 
       - name: Configure npm auth for GitHub Packages
-        env:
-          GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
         run: |
-          printf $'@rchapkailo:registry=https://npm.pkg.github.com\n//npm.pkg.github.com/:_authToken=%s\nalways-auth=true\n' "${GH_PACKAGES_TOKEN}" > "$HOME/.npmrc"
-          cat "$HOME/.npmrc"
+          printf '@rchapkailo:registry=https://npm.pkg.github.com/\n//npm.pkg.github.com/:_authToken=${GH_PACKAGES_TOKEN}\nalways-auth=true\n' > "${GITHUB_WORKSPACE}/.npmrc"
+          cat "${GITHUB_WORKSPACE}/.npmrc"
 
       - name: Install dependencies
         run: bun install
+        env:
+          GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
 
       - name: Run tests
         run: bun test
