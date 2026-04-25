@@ -48,11 +48,7 @@ jobs:
         env:
           GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
         run: |
-          cat <<EOF > "$NPM_CONFIG_USERCONFIG"
-          @rchapkailo:registry=https://npm.pkg.github.com
-          //npm.pkg.github.com/:_authToken=${GH_PACKAGES_TOKEN}
-          always-auth=true
-          EOF
+          printf '@rchapkailo:registry=https://npm.pkg.github.com\n//npm.pkg.github.com/:_authToken=%s\nalways-auth=true\n' "${GH_PACKAGES_TOKEN}" > "$NPM_CONFIG_USERCONFIG"
 
       - name: Install dependencies
         run: bun install
