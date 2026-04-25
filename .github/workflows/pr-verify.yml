@@ -48,7 +48,7 @@ jobs:
         env:
           GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
         run: |
-          cat <<EOF > "$NPM_CONFIG_USERCONFIG"
+          cat <<EOF > "$HOME/.npmrc"
           @rchapkailo:registry=https://npm.pkg.github.com
           //npm.pkg.github.com/:_authToken=${GH_PACKAGES_TOKEN}
           always-auth=true
