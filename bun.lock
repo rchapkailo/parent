@@ -4,6 +4,11 @@
   "workspaces": {
     "": {
       "name": "parent",
+      "dependencies": {
+        "@rchapkailo/child-x": "0.1.0-canary.04-25-2026-15-09-56Z.pr5",
+        "@rchapkailo/child-y": "0.1.0-canary.04-25-2026-15-09-59Z.pr5",
+        "@rchapkailo/shared": "0.1.0-canary.04-25-2026-15-10-01Z.pr5",
+      },
       "devDependencies": {
         "@types/bun": "latest",
       },
@@ -13,6 +18,12 @@
     },
   },
   "packages": {
+    "@rchapkailo/child-x": ["@rchapkailo/child-x@0.1.0-canary.04-25-2026-15-09-56Z.pr5", "https://npm.pkg.github.com/download/@rchapkailo/child-x/0.1.0-canary.04-25-2026-15-09-56Z.pr5/37f57f882e3b321977a91aa0f1f79cfe67d75c50", { "peerDependencies": { "typescript": "^5" } }, "sha512-R8lGQZzxwzNWDR6IBSu8r+Gg7tdcVkGec3STDlNSyEMVDnHjeqgq7H+lzL54W5LXg6ekDSjL4f9tgSfk/llLpQ=="],
+
+    "@rchapkailo/child-y": ["@rchapkailo/child-y@0.1.0-canary.04-25-2026-15-09-59Z.pr5", "https://npm.pkg.github.com/download/@rchapkailo/child-y/0.1.0-canary.04-25-2026-15-09-59Z.pr5/33766e4c99d320a50782985c813f4a14c4e05efc", { "peerDependencies": { "typescript": "^5" } }, "sha512-XqKGSHW8qR4z779jwoeizEhDu1Wv2xFgq777WIhN0MKYw7MOB6OL6uRU7fOR7odwfa2bgpMUq2mGjkUV42lNjg=="],
+
+    "@rchapkailo/shared": ["@rchapkailo/shared@0.1.0-canary.04-25-2026-15-10-01Z.pr5", "https://npm.pkg.github.com/download/@rchapkailo/shared/0.1.0-canary.04-25-2026-15-10-01Z.pr5/f8c767c06e4df8d2c2f07ef577471f36fe8bd598", { "peerDependencies": { "typescript": "^5" } }, "sha512-QpBsVqhtrv9w7KdyQUE4FNdcwerANUTkFOfc7aqasrhzl8uZljp16ReZ2bKvi1KNQ2QYTlzYXeNDlAgXtC5M7Q=="],
+
     "@types/bun": ["@types/bun@1.3.13", "", { "dependencies": { "bun-types": "1.3.13" } }, "sha512-9fqXWk5YIHGGnUau9TEi+qdlTYDAnOj+xLCmSTwXfAIqXr2x4tytJb43E9uCvt09zJURKXwAtkoH4nLQfzeTXw=="],
 
     "@types/node": ["@types/node@25.6.0", "", { "dependencies": { "undici-types": "~7.19.0" } }, "sha512-+qIYRKdNYJwY3vRCZMdJbPLJAtGjQBudzZzdzwQYkEPQd+PJGixUL5QfvCLDaULoLv+RhT3LDkwEfKaAkgSmNQ=="],
