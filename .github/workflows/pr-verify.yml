@@ -23,13 +23,6 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v6
 
-      - name: Set up Node
-        uses: actions/setup-node@v6
-        with:
-          node-version: lts/*
-          registry-url: https://npm.pkg.github.com
-          scope: '@rchapkailo'
-
       - name: Set up Bun
         uses: oven-sh/setup-bun@v2.2.0
         with:
@@ -51,23 +44,8 @@ jobs:
           printf $'[install.scopes]\n"@rchapkailo" = { registry = "https://npm.pkg.github.com/", token = "%s" }\n' "${GH_PACKAGES_TOKEN}" > "$HOME/.bunfig.toml"
           cat "$HOME/.bunfig.toml"
 
-      - name: Verify token can reach registry
-        env:
-          GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
-        run: |
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
-            -H "Authorization: Bearer ${GH_PACKAGES_TOKEN}" \
-            "https://npm.pkg.github.com/@rchapkailo%2fchild-x")
-          echo "Registry response status: $STATUS"
-          if [ "$STATUS" != "200" ]; then
-            echo "Token cannot reach registry (got $STATUS). Check that GH_PACKAGES_TOKEN is a classic PAT with read:packages scope and has access to @rchapkailo packages."
-            exit 1
-          fi
-
       - name: Install dependencies
         run: bun install
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
 
       - name: Run tests
         run: bun test
