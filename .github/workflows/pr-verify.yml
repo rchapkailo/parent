@@ -48,7 +48,7 @@ jobs:
         env:
           GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
         run: |
-          printf '@rchapkailo:registry=https://npm.pkg.github.com\n//npm.pkg.github.com/:_authToken=%s\nalways-auth=true\n' "${GH_PACKAGES_TOKEN}" > "$NPM_CONFIG_USERCONFIG"
+          printf '@rchapkailo:registry=https://npm.pkg.github.com\n//npm.pkg.github.com/:_authToken=%s\nalways-auth=true\n' "${GH_PACKAGES_TOKEN}" > "$HOME/.npmrc"
 
       - name: Install dependencies
         run: bun install
