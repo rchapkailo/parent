@@ -41,8 +41,8 @@ jobs:
         env:
           GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
         run: |
-          printf $'[install.scopes]\n"@rchapkailo" = { token = "%s", url = "https://npm.pkg.github.com/" }\n' "${GH_PACKAGES_TOKEN}" > "$HOME/.bunfig.toml"
-          cat "$HOME/.bunfig.toml"
+          printf $'@rchapkailo:registry=https://npm.pkg.github.com\n//npm.pkg.github.com/:_authToken=%s\nalways-auth=true\n' "${GH_PACKAGES_TOKEN}" > "$HOME/.npmrc"
+          cat "$HOME/.npmrc"
 
       - name: Install dependencies
         run: bun install
