@@ -1,4 +1,4 @@
-name: PR Check
+name: PR Verify
 
 on:
   pull_request:
@@ -15,8 +15,8 @@ permissions:
   packages: read
 
 jobs:
-  pr-check:
-    name: PR Check
+  verify:
+    name: PR Verify
     runs-on: ubuntu-latest
 
     steps:
