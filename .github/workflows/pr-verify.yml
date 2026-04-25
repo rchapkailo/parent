@@ -48,7 +48,8 @@ jobs:
         env:
           GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
         run: |
-          printf '[install.scopes]\n"@rchapkailo" = { registry = "https://npm.pkg.github.com/", token = "%s" }\n' "${GH_PACKAGES_TOKEN}" > "$HOME/.bunfig.toml"
+          printf $'[install.scopes]\n"@rchapkailo" = { registry = "https://npm.pkg.github.com/", token = "%s" }\n' "${GH_PACKAGES_TOKEN}" > "$HOME/.bunfig.toml"
+          cat "$HOME/.bunfig.toml"
 
       - name: Verify token can reach registry
         env:
