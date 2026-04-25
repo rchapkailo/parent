@@ -1,20 +1,25 @@
 {
   "name": "@rchapkailo/parent",
   "version": "0.1.0",
-  "module": "index.ts",
-  "type": "module",
   "private": true,
+  "type": "module",
+  "module": "index.ts",
   "scripts": {
     "build": "bun build ./index.ts --outdir ./dist",
-    "test": "bun test"
+    "test": "bun test",
+    "lint": "oxlint .",
+    "format:check": "oxfmt --check .",
+    "format:write": "oxfmt ."
   },
   "dependencies": {
-    "@rchapkailo/child-x": "0.1.0-canary.04-25-2026-15-09-56Z.pr5",
-    "@rchapkailo/child-y": "0.1.0-canary.04-25-2026-15-09-59Z.pr5",
-    "@rchapkailo/shared": "0.1.0-canary.04-25-2026-15-10-01Z.pr5"
+    "@rchapkailo/child-x": "0.1.0-canary.04-25-2026-18-50-14Z.pr12",
+    "@rchapkailo/child-y": "0.1.0-canary.04-25-2026-18-48-11Z.pr12",
+    "@rchapkailo/shared": "0.1.0-canary.04-25-2026-18-49-18Z.pr11"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "oxfmt": "latest",
+    "oxlint": "latest"
   },
   "peerDependencies": {
     "typescript": "^5"
