@@ -12,9 +12,9 @@
     "format:write": "oxfmt \"**/*.js\" \"**/*.ts\""
   },
   "dependencies": {
-    "@rchapkailo/child-x": "0.1.0-canary.04-25-2026-21-05-12Z.pr16",
-    "@rchapkailo/child-y": "0.1.0-canary.04-25-2026-21-06-45Z.pr17",
-    "@rchapkailo/shared": "0.1.0-canary.04-25-2026-21-05-32Z.pr15"
+    "@rchapkailo/child-x": "1.0.1-canary.04-27-2026-19-53-54Z.pr51",
+    "@rchapkailo/child-y": "1.0.1-canary.04-27-2026-20-13-37Z.pr29",
+    "@rchapkailo/shared": "1.0.1-canary.04-27-2026-20-17-41Z.pr28"
   },
   "devDependencies": {
     "@types/bun": "latest",
