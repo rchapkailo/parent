@@ -9,7 +9,8 @@
     "test": "bun test",
     "lint": "oxlint .",
     "format:check": "oxfmt --check \"**/*.js\" \"**/*.ts\"",
-    "format:write": "oxfmt \"**/*.js\" \"**/*.ts\""
+    "format:write": "oxfmt \"**/*.js\" \"**/*.ts\"",
+    "prepare": "simple-git-hooks"
   },
   "dependencies": {
     "@rchapkailo/child-x": "1.0.1-canary.04-27-2026-19-53-54Z.pr51",
@@ -19,7 +20,11 @@
   "devDependencies": {
     "@types/bun": "latest",
     "oxfmt": "latest",
-    "oxlint": "latest"
+    "oxlint": "latest",
+    "simple-git-hooks": "latest"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "bun run format:write"
   },
   "peerDependencies": {
     "typescript": "^5"
